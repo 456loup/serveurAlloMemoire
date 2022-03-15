@@ -33,6 +33,7 @@ void *communication(void *socketClient){
    if( (erreur = recv( sockClient , nomPaquet , TAILLE_MAX_MESSAGE , 0) != 0)){
        printf(" erreur au niveau de la reception du serveur pour le thread %d " , (int)pthread_self()); 
    }
+   printf(" MESSAGE ENVOYE PAR LE CLIENT : %s \n" , nomPaquet);  
    if( (retourSysteme = system("/usr/bin/SeReC/nomProgramme  <nom paquet>")) != 0){
        if( (erreur = send( sockClient , retourNeg , 5 , 0)) < 0 ){
            printf(" Erreur au niveau de l envoi de l erreur   ");
